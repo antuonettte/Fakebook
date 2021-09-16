@@ -1,6 +1,8 @@
-from app import app, db
-from flask import render_template, request, redirect, url_for, flash
+from app.blueprints.auth.models import User
+from app import db
+from flask import render_template, request, redirect, url_for, flash, current_app as app
 from app.models import Post
+
 
 
 @app.route('/', methods=['GET','POST'])
@@ -29,3 +31,7 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
