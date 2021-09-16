@@ -4,8 +4,8 @@
     <h3>Home</h3>
     <hr />
 
-    <form>
-        <div class="form-group">
+    <form action="{{url_for('home')}}" method="POST">
+        <div class="form-group" >
             <div class="row">
                 <div class="col-md-10">
                     <input class="form-control" type="text" name='body' placeholder="Your blog post here..." />
@@ -28,7 +28,7 @@
                 </p>
                 <div>
                     <span>
-                        <cite>&mdash; {{ p.first_name + ' ' + p.last_name }}</cite>
+                        <cite>&mdash; {{ p.user.first_name + ' ' + p.user.last_name }}</cite>
                         <small class="float-right">{{ p.date_posted }} seconds ago</small>
                     </span>
             

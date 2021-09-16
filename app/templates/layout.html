@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Home</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +16,20 @@
         </header>
 
         <main class="container" style="margin-bottom: 35px;">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for c, m in messages %}
+                        <div class="alert alert-{{ c }} alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong>{{ m }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             
             {% block content %}{% endblock content %}
 
