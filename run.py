@@ -1,6 +1,7 @@
+from app.blueprints.main.models import Post
 from app.blueprints.auth.models import User
-from app import db, create_app
-from app.models import Post
+from app.blueprints.main import db, create_app
+
 
 
 app = create_app()
