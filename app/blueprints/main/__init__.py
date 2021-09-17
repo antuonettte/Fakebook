@@ -5,7 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask import Blueprint
 
-bp = Blueprint( 'auth',__name__, url_prefix='/main')
+bp = Blueprint( 'main',__name__, url_prefix='/main')
 
 
 db = SQLAlchemy()

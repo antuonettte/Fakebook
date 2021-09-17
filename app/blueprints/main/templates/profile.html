@@ -16,26 +16,26 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name" name="first_name" value="" />
+                            <input type="text" class="form-control" placeholder=" " required="required" name="first_name" value=" {{ current_user.first_name }}" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="" />
+                            <input type="text" class="form-control" placeholder="  " required="required" name="last_name" value="{{ current_user.last_name }}" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="example@email.com" name="email" value="" />
+                            <input type="email" class="form-control" placeholder="" required="required" name="email" value="{{ current_user.email }}" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <textarea class="form-control" name="bio" id="" cols="30" rows="10" placeholder="Type bio here"></textarea>
+                            <textarea class="form-control" name="bio" id="" cols="30" rows="10" placeholder="" value="{{ current_user.bio }}" maxlength="500"></textarea>
                         </div>
                     </div>
                 </div>

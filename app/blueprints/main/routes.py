@@ -1,6 +1,9 @@
 from app.blueprints.main.models import Post
-
+from app.blueprints.auth.models import User
+from app.blueprints.main import db
 from flask import render_template, request, redirect, url_for, flash, current_app as app
+from flask_login import current_user
+# from .import bp as app
 
 
 
@@ -31,6 +34,14 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route('/profile')
-def register():
+@app.route('/profile', methods=['GET','POST'])
+def profile():
+    if request.method == 'POST':
+
+        u = User()
+        u.update_profile(request.form)
+
+        flash('User has updated profile successfully!', 'success')
+        redirect(url_for('profile'))
+
     return render_template('profile.html')

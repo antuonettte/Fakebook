@@ -2,7 +2,7 @@ from app.blueprints.auth.models import User
 from .import bp as app
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user
-from app import db
+from app.blueprints.main import db
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -40,16 +40,6 @@ def register():
         if request.form.get('pasword') != request.form.get('confirm_pasword'):
             flash('Your passwords do not match.','danger')
             return redirect(url_for('auth.register'))
-            #Creates User object
-        # u = User(
-        #     first_name=request.form.get('first_name'),
-        #     last_name = request.form.get('last_name'),
-        #     # Used unique=true in the blueprint.models.py file, to make it only 1 email per person
-        #     email = request.form.get('email') ,
-        #     password=request.form.get('password'),
-        # )#Commits the User object to the db
-        # db.session.add(u)
-        # db.session.commit()
 
         u=User()
         u.from_dict(request.form)
